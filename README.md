@@ -2,6 +2,8 @@
 
 A VS Code extension for managing editor tabs with a focus-based view.
 
+![./image.png](./image.png)
+
 ## Features
 
 - **Recent Tabs View**: See all your open tabs across all splits, ordered from most recently focused to least recently focused
