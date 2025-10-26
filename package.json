@@ -3,6 +3,11 @@
   "displayName": "Tab Stack",
   "description": "A VS Code extension for managing editor tabs",
   "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gregflynn/vscode-tab-stack"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -48,15 +53,16 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "package": "./build-release.sh"
   },
   "devDependencies": {
-    "@types/vscode": "^1.85.0",
     "@types/node": "20.x",
+    "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
+    "@vscode/vsce": "^3.6.2",
     "eslint": "^8.56.0",
     "typescript": "^5.3.3"
   }
 }
-

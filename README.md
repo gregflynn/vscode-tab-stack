@@ -30,3 +30,24 @@ Run `npm run compile` to compile the TypeScript code.
 
 Run `npm run watch` to watch for changes and compile automatically.
 
+## Packaging for Release
+
+To build a `.vsix` package for distribution:
+
+```bash
+npm run package
+```
+
+This will:
+1. Compile the TypeScript code
+2. Package the extension
+3. Output `vscode-tab-stack-{version}.vsix` to the `releases/` directory
+
+To install the packaged extension:
+
+```bash
+code --install-extension releases/vscode-tab-stack-0.0.1.vsix
+```
+
+Or install via VS Code: Extensions → "..." menu → "Install from VSIX..."
+
