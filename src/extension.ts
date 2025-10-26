@@ -135,6 +135,29 @@ export function activate(context: vscode.ExtensionContext) {
     }
   );
 
+  const closeTabCommand = vscode.commands.registerCommand(
+    "tabStack.closeTab",
+    async (tabInfo: TabInfo) => {
+      if (!tabInfo.uri) {
+        return;
+      }
+
+      // Find and close the tab
+      const tabGroups = vscode.window.tabGroups.all;
+      for (const group of tabGroups) {
+        for (const tab of group.tabs) {
+          if (
+            tab.input instanceof vscode.TabInputText &&
+            tab.input.uri.toString() === tabInfo.uri.toString()
+          ) {
+            await vscode.window.tabGroups.close(tab);
+            return;
+          }
+        }
+      }
+    }
+  );
+
   // Listen for tab changes
   const tabChangeListener = vscode.window.tabGroups.onDidChangeTabs(() => {
     tabStackProvider.refresh();
@@ -150,6 +173,7 @@ export function activate(context: vscode.ExtensionContext) {
     treeView,
     refreshCommand,
     openTabCommand,
+    closeTabCommand,
     tabChangeListener,
     activeTabChangeListener
   );

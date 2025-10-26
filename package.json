@@ -2,7 +2,7 @@
   "name": "vscode-tab-stack",
   "displayName": "Tab Stack",
   "description": "A VS Code extension for managing editor tabs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -26,6 +26,11 @@
       {
         "command": "tabStack.openTab",
         "title": "Tab Stack: Open Tab"
+      },
+      {
+        "command": "tabStack.closeTab",
+        "title": "Tab Stack: Close Tab",
+        "icon": "$(close)"
       }
     ],
     "views": {
@@ -43,6 +48,13 @@
           "command": "tabStack.refreshTabList",
           "when": "view == tabStackView",
           "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "tabStack.closeTab",
+          "when": "view == tabStackView",
+          "group": "inline"
         }
       ]
     }
